@@ -24,8 +24,8 @@ apiRouter.put('/minions/:minionId', (req, res, next) => {
   if (id >= 450 || instance === -1 || isNaN(id) ) {
     res.status(404).send();
   } else {
-    minions.updateInstanceInDatabase('minions', req.query);
-    res.send(minions.db.allMinions.data.id);
+    const updatedMinion = minions.updateInstanceInDatabase('minions', req.query);
+    res.send(updatedMinion);
   }
 })
 
